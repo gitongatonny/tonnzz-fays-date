@@ -1,0 +1,13 @@
+{
+  "name": "arboretum-love-date",
+  "version": "1.0.0",
+  "description": "A futuristic love-themed website for our Arboretum date",
+  "main": "index.html",
+  "scripts": {
+    "dev": "serve .",
+    "start": "serve ."
+  },
+  "keywords": ["love", "date", "arboretum"],
+  "author": "",
+  "license": "MIT"
+}
