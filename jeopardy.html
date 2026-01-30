@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Couple's Jeopardy - Game Instructions</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        @page { size: A4; margin: 12mm; }
+        
+        body { 
+            font-family: Georgia, serif; 
+            background: linear-gradient(135deg, #DC143C 0%, #DC143C 100%); 
+            min-height: 100vh; 
+            padding: 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: white; 
+            border-radius: 25px; 
+            box-shadow: 0 30px 70px rgba(0,0,0,0.3); 
+            overflow: hidden;
+            border: 3px solid rgba(102,126,234,0.3);
+        }
+        
+        .header { 
+            text-align: center; 
+            font-family: Georgia, serif; 
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #DC143C 0%, #8B0000 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header .tagline {
+            font-size: 18px;
+            opacity: 0.95;
+            font-style: italic;
+        }
+        
+        .overview-box {
+            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
+            padding: 30px;
+            margin: 35px 40px;
+            border-radius: 20px;
+            border-left: 8px solid #DC143C;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+        
+        .overview-box strong {
+            color: #8B0000;
+            font-size: 18px;
+        }
+        
+        .section { 
+            margin: 35px 40px; 
+            padding: 30px; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.9), rgba(230,230,250,0.5)); 
+            border-radius: 20px; 
+            border-left: 6px solid #DC143C;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            page-break-inside: avoid;
+        }
+        
+        .section-title { 
+            font-family: Georgia, serif; 
+            font-size: 26px; 
+            color: #DC143C; 
+            margin-bottom: 25px; 
+            text-align: center;
+            position: relative;
+            padding-bottom: 12px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: currentColor;
+        }
+        
+        .gameboard-demo { 
+            background: #1a1a2e; 
+            color: #00d4ff; 
+            padding: 25px; 
+            border-radius: 15px; 
+            margin: 25px 0; 
+            font-family: 'Courier New', monospace; 
+            text-align: center;
+            font-size: 13px;
+            line-height: 1.8;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        
+        .gameboard-demo .title {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #FFD700;
+        }
+        
+        .steps-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+            gap: 25px; 
+            margin: 25px 0;
+        }
+        
+        .step { 
+            background: linear-gradient(135deg, #FF9FF3, #F368E0); 
+            color: white; 
+            padding: 25px; 
+            border-radius: 20px; 
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(243,104,224,0.3);
+        }
+        
+        .stepnum { 
+            font-size: 42px; 
+            font-weight: bold; 
+            display: block; 
+            margin-bottom: 12px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .step-content {
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        
+        .rules-box {
+            background: linear-gradient(135deg, #FFAFBD, #ffc3a0);
+            padding: 25px;
+            border-radius: 20px;
+            margin: 25px 0;
+            border-left: 8px solid #FF7675;
+        }
+        
+        .rules-box h3 {
+            color: #d63031;
+            font-family: Georgia, serif;
+            font-size: 22px;
+            margin-bottom: 15px;
+        }
+        
+        .rules-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rules-box li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .rules-box li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #d63031;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        
+        .category-box { 
+            background: linear-gradient(135deg, #A8E6CF, #88D8A3); 
+            padding: 25px; 
+            margin: 20px 0; 
+            border-radius: 15px; 
+            border-left: 8px solid #20BF6B;
+        }
+        
+        .category-box h3 {
+            font-family: Georgia, serif;
+            color: #1e7e34;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .category-item {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+        
+        .category-item::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            color: #20BF6B;
+            font-size: 18px;
+        }
+        
+        .example-flow {
+            background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px 0;
+            border-left: 6px solid #2196F3;
+        }
+        
+        .example-flow .turn {
+            margin: 15px 0;
+            padding: 12px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+        }
+        
+        .speaker {
+            font-weight: bold;
+            color: #1976D2;
+        }
+        
+        .tip-box {
+            background: linear-gradient(135deg, #FFF9C4, #FFF59D);
+            padding: 25px;
+            border-radius: 15px;
+            margin: 25px 0;
+            border-left: 6px solid #FBC02D;
+        }
+        
+        .tip-box h3 {
+            color: #F57F17;
+            font-family: Georgia, serif;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checklist li::before {
+            content: '☐';
+            position: absolute;
+            left: 0;
+            font-size: 18px;
+            color: #DC143C;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .section { margin: 20px 20px; padding: 20px; }
+            .header h1 { font-size: 28px; }
+            .steps-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1400px; margin: 0 auto; padding: 20px;"><a href="index.html" style="display: inline-block; margin-bottom: 30px; padding: 15px 35px; background: linear-gradient(135deg, #DC143C, #FF1493); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 10px 30px rgba(220,20,60,0.4); transition: all 0.3s ease;">← Back to Home</a>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 COUPLE'S JEOPARDY 🎯</h1>
+            <div class="tagline">Love Edition - Game Instructions</div>
+        </div>
+        
+        <div class="overview-box">
+            <strong>📺 GAME OVERVIEW</strong><br>
+            Couple's Jeopardy tests how well you know your partner through trivia-style questions about their life, dreams, habits, and your relationship history. It's playful, revealing, and designed to create conversation—not competition.
+        </div>
+
+        <!-- SETUP SECTION -->
+        <div class="section">
+            <div class="section-title">📦 SETUP (Do This First - 15 minutes)</div>
+            
+            <h3 style="color: #DC143C; margin: 20px 0 15px 0; font-family: Georgia, serif;">Materials Needed:</h3>
+            <ul class="checklist">
+                <li>Printed Couple's Jeopardy PDF (10 category sheets)</li>
+                <li>Scissors</li>
+                <li>Flat surface (picnic mat, table, etc.)</li>
+                <li>Small bag or pile for "earned points"</li>
+                <li>Paper + pen for scorekeeping (optional)</li>
+            </ul>
+            
+            <h3 style="color: #DC143C; margin: 25px 0 15px 0; font-family: Georgia, serif;">Preparation Steps:</h3>
+            
+            <div style="margin: 15px 0; padding: 15px; background: rgba(102,126,234,0.1); border-radius: 10px;">
+                <strong>STEP 1: PRINT</strong> the category sheets you want to use from the PDF<br>
+                • You have 10 categories available (choose 3-5 for a 45-minute game)<br>
+                • Suggested starter categories:<br>
+                &nbsp;&nbsp;&nbsp;- "A Few of Their Favorite Things"<br>
+                &nbsp;&nbsp;&nbsp;- "The Way We Were"<br>
+                &nbsp;&nbsp;&nbsp;- "PS I Love You"<br>
+                &nbsp;&nbsp;&nbsp;- "A Million Dreams"<br>
+                &nbsp;&nbsp;&nbsp;- "The Room Where It Happened"
+            </div>
+            
+            <div style="margin: 15px 0; padding: 15px; background: rgba(102,126,234,0.1); border-radius: 10px;">
+                <strong>STEP 2: CUT</strong> each category sheet:<br>
+                • First: Cut out the TITLE CARD at the top<br>
+                • Then: Cut the questions into 5 HORIZONTAL STRIPS<br>
+                • Each strip should have the dollar amount ($100-$500) on the left and the question text on the right
+            </div>
+            
+            <div style="margin: 15px 0; padding: 15px; background: rgba(102,126,234,0.1); border-radius: 10px;">
+                <strong>STEP 3: FOLD</strong> each question strip:<br>
+                • Fold in HALF vertically so the dollar amount faces UP<br>
+                • The question text should be hidden inside the fold
+            </div>
+            
+            <div style="margin: 15px 0; padding: 15px; background: rgba(102,126,234,0.1); border-radius: 10px;">
+                <strong>STEP 4: LAYOUT</strong> the game board:<br>
+                • Place TITLE CARDS in a row across the top<br>
+                • Below each title, stack the 5 folded question cards in order:<br>
+                &nbsp;&nbsp;&nbsp;$100 (easiest) at top → $500 (hardest) at bottom<br>
+                • Your board should look like a grid with categories across and dollar values down
+            </div>
+        </div>
+
+        <!-- EXAMPLE LAYOUT -->
+        <div class="section">
+            <div class="section-title">📊 Example Game Board Layout</div>
+            <div class="gameboard-demo">
+                <div class="title">📺 JEOPARDY BOARD SETUP</div>
+┌─────────────────┬─────────────────┬─────────────────┐<br>
+│  FAVORITE       │  THE WAY WE     │  PS I LOVE      │<br>
+│    THINGS       │     WERE        │      YOU        │<br>
+├─────────────────┼─────────────────┼─────────────────┤<br>
+│     $100        │     $100        │     $100        │<br>
+├─────────────────┼─────────────────┼─────────────────┤<br>
+│     $200        │     $200        │     $200        │<br>
+├─────────────────┼─────────────────┼─────────────────┤<br>
+│     $300        │     $300        │     $300        │<br>
+├─────────────────┼─────────────────┼─────────────────┤<br>
+│     $400        │     $400        │     $400        │<br>
+├─────────────────┼─────────────────┼─────────────────┤<br>
+│     $500        │     $500        │     $500        │<br>
+└─────────────────┴─────────────────┴─────────────────┘
+            </div>
+        </div>
+
+        <!-- HOW TO PLAY -->
+        <div class="section">
+            <div class="section-title">🎲 How To Play - Step by Step</div>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <span class="stepnum">1️⃣</span>
+                    <div class="step-content">
+                        <strong>DECIDE WHO GOES FIRST</strong><br>
+                        Flip a coin, rock-paper-scissors, or the person who planned the date goes first
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="stepnum">2️⃣</span>
+                    <div class="step-content">
+                        <strong>PLAYER 1'S TURN</strong><br>
+                        Pick a category and dollar amount<br>
+                        Example: "Favorite Things for $300"
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="stepnum">3️⃣</span>
+                    <div class="step-content">
+                        <strong>PLAYER 2 READS</strong><br>
+                        Pick up that card, unfold it, and read the question out loud
+                    </div>
+                </div>
+            </div>
+            
+            <div class="steps-grid">
+                <div class="step">
+                    <span class="stepnum">4️⃣</span>
+                    <div class="step-content">
+                        <strong>PLAYER 1 ANSWERS</strong><br>
+                        Answer the question ABOUT PLAYER 2<br>
+                        (You're answering about your partner, not yourself)
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="stepnum">5️⃣</span>
+                    <div class="step-content">
+                        <strong>SCORING</strong><br>
+                        ✅ Correct = Keep card + points<br>
+                        ❌ Wrong = Player 2 gets chance to steal<br>
+                        Both wrong = Discard pile
+                    </div>
+                </div>
+                
+                <div class="step">
+                    <span class="stepnum">6️⃣</span>
+                    <div class="step-content">
+                        <strong>ALTERNATE TURNS</strong><br>
+                        Switch who is answering each round<br>
+                        Continue until all cards played or time runs out
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RULES BOX -->
+        <div class="rules-box">
+            <h3>🎲 IMPORTANT GAMEPLAY RULES</h3>
+            <ul>
+                <li><strong>DON'T BE NITPICKY:</strong> If your partner's answer is close or shows genuine effort to know you, count it as correct. The spirit matters more than perfect accuracy.</li>
+                <li><strong>EXPLAIN YOUR ANSWERS:</strong> When you answer, give context. Example: "I think her favorite childhood toy was her stuffed elephant because she's mentioned it twice."</li>
+                <li><strong>USE WRONG ANSWERS AS CONVERSATION:</strong> If you get something wrong, don't just move on. Ask: "Oh really? Tell me more about that!"</li>
+                <li><strong>ADJUST DIFFICULTY:</strong> Skip questions that are too personal or not applicable (e.g., "In-Laws" questions if you haven't met families yet).</li>
+                <li><strong>TIME LIMIT (OPTIONAL):</strong> Set a 15-second timer per answer to keep the game moving, or let conversation flow naturally.</li>
+            </ul>
+        </div>
+
+        <!-- CATEGORY DESCRIPTIONS -->
+        <div class="section">
+            <div class="section-title">📋 Category Descriptions (All 10 Available)</div>
+            
+            <div class="category-box">
+                <h3>💖 TOP 5 RECOMMENDED FOR YOUR DATE</h3>
+                <div class="category-item"><strong>A Few of Their Favorite Things:</strong> Partner's current favorites (food, drink, ways to waste time, characters)</div>
+                <div class="category-item"><strong>PS I Love You:</strong> Why you love them (best gift, best habit, best quality, best date)</div>
+                <div class="category-item"><strong>A Million Dreams:</strong> Partner's big dreams (vacation, home, job, meeting heroes)</div>
+                <div class="category-item"><strong>The Room Where It Happened:</strong> Places where key relationship moments occurred (first kiss, first date)</div>
+                <div class="category-item"><strong>The Way We Were:</strong> Dating life before serious commitment (Friday nights then vs now, favorite trips)</div>
+            </div>
+            
+            <div style="margin: 20px 0; padding: 20px; background: rgba(0,0,0,0.05); border-radius: 10px;">
+                <h3 style="color: #DC143C; margin-bottom: 15px;">OTHER AVAILABLE CATEGORIES:</h3>
+                <div class="category-item"><strong>Hidden Figures:</strong> Factual trivia (phone number, shoe size, states visited, childhood address)</div>
+                <div class="category-item"><strong>The Wonder Years:</strong> Childhood questions (favorite toy, embarrassing fashion, best trip, closest friend)</div>
+                <div class="category-item"><strong>The "Dark" Side:</strong> Questions about in-laws (if applicable to your relationship stage)</div>
+                <div class="category-item"><strong>Heigh-Ho Heigh-Ho:</strong> Work-related questions (dream career, daily tasks, ideal job for them)</div>
+                <div class="category-item"><strong>Dolla Dolla Bills Y'all:</strong> Money questions (who spends more, frivolous purchases, biggest disagreement)</div>
+            </div>
+        </div>
+
+        <!-- EXAMPLE GAME FLOW -->
+        <div class="section">
+            <div class="section-title">💬 Example Game Flow</div>
+            
+            <div class="example-flow">
+                <div class="turn">
+                    <span class="speaker">Player 1:</span> "I'll take 'Favorite Things' for $200"
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 2:</span> [picks up card, unfolds it, reads] "What is your partner's favorite way to waste time?"
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 1:</span> "Hmm... I think she loves scrolling TikTok animal videos when she's supposed to be working"
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 2:</span> [laughs] "That's correct! You get $200" [hands card to Player 1]
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 2:</span> "Okay, my turn. I'll take 'PS I Love You' for $300"
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 1:</span> [reads] "What is the best quality of your partner?"
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 2:</span> "I'd say his ability to stay calm when I'm spiraling. He grounds me."
+                </div>
+                
+                <div class="turn">
+                    <span class="speaker">Player 1:</span> [smiles] "I didn't even know you thought of it that way. That's correct. $300 for you."
+                </div>
+                
+                <div style="margin-top: 15px; padding: 15px; background: rgba(255,255,255,0.9); border-radius: 10px; text-align: center; font-style: italic;">
+                    [Continue until all desired cards are played]
+                </div>
+            </div>
+        </div>
+
+        <!-- TIPS FOR MAXIMUM FUN -->
+        <div class="tip-box">
+            <h3>✨ Tips For Maximum Fun</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="padding: 8px 0;">✓ Start with EASIER categories ($100-$300 questions) to warm up</li>
+                <li style="padding: 8px 0;">✓ Choose categories that match your relationship stage</li>
+                <li style="padding: 8px 0;">✓ Keep the energy light—laugh at wrong answers instead of getting defensive</li>
+                <li style="padding: 8px 0;">✓ After the game, discuss: "What surprised you?" "What do I need to tell you more about?"</li>
+                <li style="padding: 8px 0;">✓ Save harder categories for when you're both relaxed and fed</li>
+                <li style="padding: 8px 0;">✓ If a question reveals you DON'T know something, that's the POINT—now you can learn it!</li>
+            </ul>
+        </div>
+
+        <!-- FINAL REMINDER -->
+        <div class="overview-box" style="margin-top: 30px; border-left-color: #20BF6B; background: linear-gradient(135deg, #E8F5E9, #C8E6C9);">
+            <strong style="color: #2E7D32;">🌟 FINAL REMINDER 🌟</strong><br>
+            This game is a TOOL FOR CONNECTION, not a test. The best outcome isn't winning—it's learning something new about each other and having conversations you wouldn't normally have.<br><br>
+            <strong>If you get every answer right:</strong> you know your partner well (great!)<br>
+            <strong>If you get answers wrong:</strong> you now have things to talk about (also great!)<br><br>
+            <strong style="font-size: 20px;">Enjoy the game! 💕</strong>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
