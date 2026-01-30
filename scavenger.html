@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🌿 Nairobi Arboretum Nature Scavenger Hunt</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        @page { size: A4; margin: 11mm; }
+        
+        body { 
+            font-family: Georgia, serif; 
+            background: linear-gradient(135deg, #1a0000 0%, #4a0000 50%, #FFE0E0 100%); 
+            min-height: 100vh; 
+            padding: 20px;
+            line-height: 1.6;
+            color: #2C1810;
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.98); 
+            border-radius: 26px; 
+            box-shadow: 0 26px 62px rgba(220,20,60,0.28); 
+            overflow: hidden;
+            border: 4px solid rgba(220,20,60,0.3);
+        }
+        
+        .header { 
+            text-align: center; 
+            font-family: Georgia, serif; 
+            padding: 46px 32px;
+            background: linear-gradient(135deg, #DC143C 0%, #FF6B9D 50%, #FFB6C1 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 40px;
+            margin-bottom: 17px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.18);
+        }
+        
+        .header .subtitle {
+            font-size: 19px;
+            opacity: 0.97;
+            font-style: italic;
+        }
+        
+        .intro-box {
+            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
+            padding: 26px;
+            margin: 32px 42px;
+            border-radius: 22px;
+            border-left: 7px solid #DC143C;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.85;
+        }
+        
+        .intro-box strong {
+            color: #8B0000;
+            font-size: 19px;
+        }
+        
+        .section { 
+            margin: 36px 42px; 
+            padding: 32px; 
+            background: linear-gradient(135deg, rgba(255,255,255,0.96), rgba(255,240,245,0.7)); 
+            border-radius: 22px; 
+            border-left: 7px solid #DC143C;
+            box-shadow: 0 12px 32px rgba(220,20,60,0.1);
+            page-break-inside: avoid;
+        }
+        
+        .section-title { 
+            font-family: Georgia, serif; 
+            font-size: 28px; 
+            color: #8B0000; 
+            margin-bottom: 26px; 
+            text-align: center;
+            position: relative;
+            padding-bottom: 14px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90px;
+            height: 4px;
+            background: currentColor;
+        }
+        
+        .hunt-item {
+            margin: 22px 0;
+            padding: 22px;
+            background: rgba(255,255,255,0.93);
+            border-radius: 16px;
+            border-left: 6px solid #FF1493;
+            position: relative;
+            page-break-inside: avoid;
+        }
+        
+        .hunt-item::before {
+            content: '♥';
+            position: absolute;
+            left: -28px;
+            top: 22px;
+            font-size: 24px;
+            color: #DC143C;
+            font-weight: bold;
+        }
+        
+        .item-title {
+            font-weight: 600;
+            color: #8B0000;
+            margin-bottom: 11px;
+            font-size: 17px;
+        }
+        
+        .fillable {
+            border-bottom: 2px dashed #FF6B9D;
+            padding: 9px 0;
+            margin: 9px 0;
+            min-height: 27px;
+            font-style: italic;
+            color: #666;
+            display: block;
+        }
+        
+        .couple-section {
+            background: linear-gradient(135deg, #FFF0F5, #FFE5EC) !important;
+            border-left-color: #DC143C !important;
+        }
+        
+        .couple-section .section-title {
+            color: #8B0000 !important;
+        }
+        
+        .couple-section .hunt-item {
+            border-left-color: #DC143C !important;
+        }
+        
+        .couple-section .hunt-item::before {
+            color: #DC143C !important;
+        }
+        
+        .couple-section .item-title {
+            color: #8B0000 !important;
+        }
+        
+        .couple-section .fillable {
+            border-bottom-color: #DC143C !important;
+        }
+        
+        .observation-section {
+            background: linear-gradient(135deg, #FFE0E0, #FFF0F0) !important;
+            border-left-color: #C71585 !important;
+        }
+        
+        .observation-section .section-title {
+            color: #8B0000 !important;
+        }
+        
+        .observation-section .hunt-item {
+            border-left-color: #C71585 !important;
+        }
+        
+        .observation-section .hunt-item::before {
+            color: #C71585 !important;
+        }
+        
+        .observation-section .item-title {
+            color: #8B0000 !important;
+        }
+        
+        .observation-section .fillable {
+            border-bottom-color: #C71585 !important;
+        }
+        
+        .photo-section {
+            background: linear-gradient(135deg, #FFF5F7, #FFE4E9) !important;
+            border-left-color: #FF1493 !important;
+        }
+        
+        .photo-section .section-title {
+            color: #8B0000 !important;
+        }
+        
+        .photo-section .hunt-item {
+            border-left-color: #FF1493 !important;
+        }
+        
+        .photo-section .hunt-item::before {
+            color: #FF1493 !important;
+        }
+        
+        .completion-box {
+            background: linear-gradient(135deg, #FFE5EC, #FFF0F5);
+            padding: 32px;
+            margin: 32px 42px;
+            border-radius: 22px;
+            border-left: 7px solid #DC143C;
+        }
+        
+        .completion-box .section-title {
+            color: #8B0000 !important;
+        }
+        
+        .completion-box .fillable {
+            border-bottom-color: #DC143C !important;
+        }
+        
+        .spot-card {
+            background: rgba(255,255,255,0.96);
+            padding: 19px;
+            margin: 16px 0;
+            border-radius: 13px;
+            border-left: 5px solid #FF1493;
+        }
+        
+        .spot-label {
+            font-weight: 600;
+            color: #8B0000;
+            margin-bottom: 9px;
+            font-size: 16px;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+            .hunt-item::before { left: -22px; }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .section { margin: 20px 20px; padding: 20px; }
+            .header h1 { font-size: 30px; }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1400px; margin: 0 auto; padding: 20px;"><a href="index.html" style="display: inline-block; margin-bottom: 30px; padding: 15px 35px; background: linear-gradient(135deg, #DC143C, #FF1493); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 10px 30px rgba(220,20,60,0.4); transition: all 0.3s ease;">← Back to Home</a>
+    <div class="container">
+        <div class="header">
+            <h1>🌿 ARBORETUM SCAVENGER HUNT 🌿</h1>
+            <div class="subtitle">Explore Together • Find & Discover</div>
+        </div>
+        
+        <div class="intro-box">
+            <strong>INSTRUCTIONS</strong><br>
+            Work together to find and check off each item<br>
+            Take photos as proof • This hunt turns exploration into adventure
+        </div>
+
+        <!-- NATURE ITEMS SECTION -->
+        <div class="section">
+            <div class="section-title">❤️ NATURE ITEMS TO FIND ❤️</div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A tree with peeling or unusual bark</div>
+                <span class="fillable">Where we found it: _____________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A butterfly (any color)</div>
+                <span class="fillable">Color/type: ___________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A bird's nest (observe from distance - don't disturb)</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A heart-shaped leaf</div>
+                <span class="fillable">From which tree: ______________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A log or fallen branch big enough for both to sit on</div>
+                <span class="fillable">Our "sitting log" location: ____________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Three different types of tree leaves (collect fallen ones)</div>
+                <span class="fillable">Types collected: ______________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A tree with exposed roots above ground</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ The tallest tree you can find in the Arboretum</div>
+                <span class="fillable">Estimated height: _____________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A flower or flowering plant</div>
+                <span class="fillable">Color: ________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Evidence of wildlife (bird feathers, animal tracks, etc.)</div>
+                <span class="fillable">What we found: ________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A tree growing at an unusual angle or shape</div>
+                <span class="fillable">Why it's unusual: _____________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ A peaceful spot with no visible people</div>
+                <span class="fillable">Location for future visits: ____________________________________________________</span>
+            </div>
+        </div>
+
+        <!-- COUPLE-SPECIFIC ITEMS SECTION -->
+        <div class="section couple-section">
+            <div class="section-title">💕 OUR SPECIAL ITEMS 💕</div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ "OUR TREE" - Pick one tree that represents your relationship & name it</div>
+                <span class="fillable">Tree name: ___________________________________________________________________</span>
+                <span class="fillable">Why this tree: ________________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Three favorite spots (each person picks individually):</div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HIS SPOT #1:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HIS SPOT #2:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HIS SPOT #3:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HER SPOT #1:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HER SPOT #2:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+                
+                <div class="spot-card">
+                    <div class="spot-label">HER SPOT #3:</div>
+                    <span class="fillable">Location: _________________________________________________________________</span>
+                    <span class="fillable">Named after: ______________________________________________________________</span>
+                </div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ ONE SHARED SPOT - The place you both agree is "yours"</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+                <span class="fillable">Why we chose it: ______________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Most "cinematic" photo location</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Something in nature that represents your future together</div>
+                <span class="fillable">What we found: ________________________________________________________________</span>
+                <span class="fillable">Why it represents us: __________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+        </div>
+
+        <!-- OBSERVATION CHALLENGES SECTION -->
+        <div class="section observation-section">
+            <div class="section-title">❤️ OBSERVATION CHALLENGES ❤️</div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Listen for bird sounds - identify at least 2 different bird calls</div>
+                <span class="fillable">Bird #1 sound: ________________________________________________________________</span>
+                <span class="fillable">Bird #2 sound: ________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Find the oldest-looking tree in your walking path</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+                <span class="fillable">Why we think it's old: _________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Spot another couple and secretly guess their "relationship story"</div>
+                <span class="fillable">Our guess: ____________________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Find a tree that represents HIM - explain why</div>
+                <span class="fillable">Tree characteristics: __________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Find a tree that represents HER - explain why</div>
+                <span class="fillable">Tree characteristics: __________________________________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Count how many different shades of green you can see in one view</div>
+                <span class="fillable">Total count: __________________________________________________________________</span>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Find the quietest spot in the entire Arboretum</div>
+                <span class="fillable">Location: _____________________________________________________________________</span>
+            </div>
+        </div>
+
+        <!-- BONUS PHOTO CHALLENGES SECTION -->
+        <div class="section photo-section">
+            <div class="section-title">💕 PHOTO CHALLENGES 💕</div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Selfie at your shared "anchor spot"</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Photo of both your hands holding a leaf together</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Candid shot of partner looking at trees/nature (not aware of camera)</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Silhouette photo with trees in background</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Photo that makes the Arboretum look like a movie scene</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Funny/silly pose together with trees</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Close-up of something tiny and beautiful (insect, flower detail, bark texture)</div>
+            </div>
+            
+            <div class="hunt-item">
+                <div class="item-title">♥ Photo of your picnic setup before eating</div>
+            </div>
+        </div>
+
+        <!-- COMPLETION NOTES SECTION -->
+        <div class="completion-box">
+            <div class="section-title">COMPLETION NOTES</div>
+            
+            <div style="margin: 22px 0;">
+                <span class="fillable">Items found: _______ / 30+</span>
+            </div>
+            
+            <div style="margin: 22px 0;">
+                <span class="fillable">Favorite discovery of the day: __________________________________________________</span>
+            </div>
+            
+            <div style="margin: 22px 0;">
+                <span class="fillable">Most surprising thing we learned about the Arboretum: ____________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+            
+            <div style="margin: 22px 0;">
+                <span class="fillable">Would we come back here? Why or why not: _______________________________________</span>
+                <span class="fillable">_____________________________________________________________________________</span>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
