@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spiritual Warfare & Biblical Foundation</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0015, #1a0a2e, #0f0520);
+            min-height: 100vh;
+            color: white;
+            line-height: 1.7;
+        }
+        
+        .light-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, rgba(138, 43, 226, 0.4), transparent),
+                radial-gradient(2px 2px at 60px 70px, rgba(255, 215, 0, 0.4), transparent),
+                radial-gradient(1px 1px at 50px 50px, white, transparent),
+                radial-gradient(1px 1px at 130px 80px, rgba(138, 43, 226, 0.3), transparent);
+            background-size: 200px 200px;
+            animation: particleFloat 20s linear infinite;
+        }
+        
+        @keyframes particleFloat {
+            from { background-position: 0 0; }
+            to { background-position: 200px 200px; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(75, 0, 130, 0.3));
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        .back-btn:hover {
+            transform: translateX(-5px);
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.5), rgba(75, 0, 130, 0.5));
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            background: linear-gradient(135deg, rgba(75, 0, 130, 0.9), rgba(138, 43, 226, 0.9));
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(138, 43, 226, 0.5);
+            border: 2px solid rgba(218, 112, 214, 0.3);
+        }
+        
+        .header h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+        }
+        
+        .header p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+            padding: 45px;
+            background: linear-gradient(135deg, rgba(30, 20, 50, 0.95), rgba(40, 30, 60, 0.95));
+            border-radius: 25px;
+            border: 2px solid rgba(138, 43, 226, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .section h2 {
+            font-size: 36px;
+            color: #DA70D6;
+            margin-bottom: 30px;
+            text-align: center;
+            text-shadow: 0 0 20px rgba(218, 112, 214, 0.6);
+        }
+        
+        .warfare-category {
+            margin: 35px 0;
+            padding: 30px;
+            background: rgba(75, 0, 130, 0.2);
+            border-left: 5px solid #9370DB;
+            border-radius: 15px;
+        }
+        
+        .warfare-category h3 {
+            font-size: 26px;
+            color: #FFD700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .warfare-category h3::before {
+            content: '⚔️';
+            margin-right: 12px;
+            font-size: 28px;
+        }
+        
+        .prayer-box {
+            margin: 25px 0;
+            padding: 25px;
+            background: rgba(138, 43, 226, 0.15);
+            border-left: 4px solid #8A2BE2;
+            border-radius: 12px;
+        }
+        
+        .prayer-box p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.95);
+            font-style: italic;
+        }
+        
+        .verse-card {
+            margin: 25px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(218, 165, 32, 0.1));
+            border: 2px solid rgba(255, 215, 0, 0.4);
+            border-radius: 15px;
+            position: relative;
+        }
+        
+        .verse-card::before {
+            content: '📖';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 32px;
+            opacity: 0.3;
+        }
+        
+        .verse-card .verse-text {
+            font-size: 18px;
+            line-height: 1.9;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 15px;
+        }
+        
+        .verse-card .verse-ref {
+            font-size: 16px;
+            color: #FFD700;
+            font-weight: 600;
+            text-align: right;
+        }
+        
+        .declaration-box {
+            padding: 35px;
+            background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(139, 0, 0, 0.2));
+            border: 3px solid rgba(220, 20, 60, 0.5);
+            border-radius: 20px;
+            margin: 30px 0;
+        }
+        
+        .declaration-box h3 {
+            font-size: 28px;
+            color: #FF6B9D;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .declaration-box ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .declaration-box li {
+            padding: 15px 0;
+            padding-left: 35px;
+            position: relative;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .declaration-box li::before {
+            content: '✝️';
+            position: absolute;
+            left: 0;
+            font-size: 20px;
+        }
+        
+        .covenant-section {
+            background: linear-gradient(135deg, rgba(139, 0, 139, 0.3), rgba(75, 0, 130, 0.3));
+            border-color: rgba(218, 112, 214, 0.5);
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 { font-size: 32px; }
+            .section h2 { font-size: 28px; }
+            .section { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="light-particles"></div>
+    
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+        
+        <div class="header">
+            <h1>✝️ SPIRITUAL WARFARE & BIBLICAL FOUNDATION ✝️</h1>
+            <p>Our Protection, Our Covenant, Our Victory in Christ</p>
+        </div>
+        
+        <!-- SECTION 1: SPIRITUAL WARFARE PRAYERS -->
+        <div class="section">
+            <h2>⚔️ SPIRITUAL WARFARE PRAYERS ⚔️</h2>
+            
+            <div class="warfare-category">
+                <h3>Against Evil & Witchcraft</h3>
+                
+                <div class="prayer-box">
+                    <p><strong>Prayer of Protection:</strong><br>
+                    "Father God, in the mighty name of Jesus Christ, we plead the blood of Jesus over our relationship, our future, and our destiny. We take authority over every evil spirit, every witchcraft manipulation, every curse, hex, vex, or spell sent against us. We command every demonic assignment to be nullified and rendered powerless by the blood of the Lamb. No weapon formed against us shall prosper (Isaiah 54:17). We are covered by the armor of God and hidden in Christ."</p>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"No weapon that is formed against thee shall prosper; and every tongue that shall rise against thee in judgment thou shalt condemn. This is the heritage of the servants of the LORD, and their righteousness is of me, saith the LORD."</div>
+                    <div class="verse-ref">— Isaiah 54:17 (KJV)</div>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"Behold, I give unto you power to tread on serpents and scorpions, and over all the power of the enemy: and nothing shall by any means hurt you."</div>
+                    <div class="verse-ref">— Luke 10:19 (KJV)</div>
+                </div>
+            </div>
+            
+            <div class="warfare-category">
+                <h3>Against Destiny Stoppers & Snatchers</h3>
+                
+                <div class="prayer-box">
+                    <p><strong>Decree of Destiny Protection:</strong><br>
+                    "We declare that our destiny is secure in the hands of God. Every destiny snatcher, every dream killer, every limitation spirit assigned to stop our progress is bound and cast into the abyss in Jesus' name. The plans God has for us are plans of hope and a future (Jeremiah 29:11). No demon in hell can abort what God has ordained. Our steps are ordered by the Lord, and He makes our way prosperous."</p>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"For I know the thoughts that I think toward you, saith the LORD, thoughts of peace, and not of evil, to give you an expected end."</div>
+                    <div class="verse-ref">— Jeremiah 29:11 (KJV)</div>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"But he knoweth the way that I take: when he hath tried me, I shall come forth as gold."</div>
+                    <div class="verse-ref">— Job 23:10 (KJV)</div>
+                </div>
+            </div>
+            
+            <div class="warfare-category">
+                <h3>Angelic Protection</h3>
+                
+                <div class="prayer-box">
+                    <p><strong>Angelic Deployment Prayer:</strong><br>
+                    "Father, we thank You for Your holy angels that encamp around us. We ask that You dispatch warring angels to fight on our behalf, to guard our relationship from every attack of the enemy. Let Your angels create a hedge of protection around us that no evil can penetrate. As Psalm 91 declares, You give Your angels charge over us to keep us in all our ways."</p>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"For he shall give his angels charge over thee, to keep thee in all thy ways. They shall bear thee up in their hands, lest thou dash thy foot against a stone."</div>
+                    <div class="verse-ref">— Psalm 91:11-12 (KJV)</div>
+                </div>
+                
+                <div class="verse-card">
+                    <div class="verse-text">"The angel of the LORD encampeth round about them that fear him, and delivereth them."</div>
+                    <div class="verse-ref">— Psalm 34:7 (KJV)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- SECTION 2: RELATIONSHIP PROTECTION & BLESSING -->
+        <div class="section">
+            <h2>💕 BIBLICAL FOUNDATION FOR OUR RELATIONSHIP 💕</h2>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Whoso findeth a wife findeth a good thing, and obtaineth favour of the LORD."</div>
+                <div class="verse-ref">— Proverbs 18:22 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Two are better than one; because they have a good reward for their labour. For if they fall, the one will lift up his fellow: but woe to him that is alone when he falleth; for he hath not another to help him up. Again, if two lie together, then they have heat: but how can one be warm alone? And if one prevail against him, two shall withstand him; and a threefold cord is not quickly broken."</div>
+                <div class="verse-ref">— Ecclesiastes 4:9-12 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"And the LORD God said, It is not good that the man should be alone; I will make him an help meet for him."</div>
+                <div class="verse-ref">— Genesis 2:18 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"He that loveth his wife loveth himself. For no man ever yet hated his own flesh; but nourisheth and cherisheth it, even as the Lord the church."</div>
+                <div class="verse-ref">— Ephesians 5:28-29 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Let thy fountain be blessed: and rejoice with the wife of thy youth."</div>
+                <div class="verse-ref">— Proverbs 5:18 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"House and riches are the inheritance of fathers: and a prudent wife is from the LORD."</div>
+                <div class="verse-ref">— Proverbs 19:14 (KJV)</div>
+            </div>
+        </div>
+        
+        <!-- SECTION 3: MARRIAGE COVENANT -->
+        <div class="section covenant-section">
+            <h2>💍 GOD'S COVENANT FOR MARRIAGE 💍</h2>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Therefore shall a man leave his father and his mother, and shall cleave unto his wife: and they shall be one flesh."</div>
+                <div class="verse-ref">— Genesis 2:24 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"What therefore God hath joined together, let not man put asunder."</div>
+                <div class="verse-ref">— Mark 10:9 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Marriage is honourable in all, and the bed undefiled: but whoremongers and adulterers God will judge."</div>
+                <div class="verse-ref">— Hebrews 13:4 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Wives, submit yourselves unto your own husbands, as unto the Lord. Husbands, love your wives, even as Christ also loved the church, and gave himself for it."</div>
+                <div class="verse-ref">— Ephesians 5:22, 25 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Nevertheless let every one of you in particular so love his wife even as himself; and the wife see that she reverence her husband."</div>
+                <div class="verse-ref">— Ephesians 5:33 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Live joyfully with the wife whom thou lovest all the days of the life of thy vanity, which he hath given thee under the sun, all the days of thy vanity: for that is thy portion in this life, and in thy labour which thou takest under the sun."</div>
+                <div class="verse-ref">— Ecclesiastes 9:9 (KJV)</div>
+            </div>
+        </div>
+        
+        <!-- SECTION 4: DECLARATIONS & DECREES -->
+        <div class="section">
+            <h2>📣 DECLARATIONS OVER OUR RELATIONSHIP 📣</h2>
+            
+            <div class="declaration-box">
+                <h3>We Declare and Decree:</h3>
+                <ul>
+                    <li>Our relationship is ordained by God and covered by His blood</li>
+                    <li>No weapon of the enemy shall prosper against our love</li>
+                    <li>We are a threefold cord—God, him, and her—that cannot be broken</li>
+                    <li>Every plan of the enemy to separate us is destroyed by fire</li>
+                    <li>Our future marriage is blessed, prosperous, and full of God's glory</li>
+                    <li>We walk in divine favor, protection, and supernatural provision</li>
+                    <li>Every generational curse is broken; we operate under a generational blessing</li>
+                    <li>Our love grows stronger every day, rooted in Christ</li>
+                    <li>We are destined for greatness, and our union will glorify God</li>
+                    <li>Angels of the Lord surround us; demonic forces cannot touch us</li>
+                    <li>We claim Jeremiah 29:11 over our future—hope, peace, and an expected end</li>
+                    <li>In Jesus' name, we have total victory over every spiritual attack</li>
+                </ul>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"And ye shall serve the LORD your God, and he shall bless thy bread, and thy water; and I will take sickness away from the midst of thee."</div>
+                <div class="verse-ref">— Exodus 23:25 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"The LORD shall cause thine enemies that rise up against thee to be smitten before thy face: they shall come out against thee one way, and flee before thee seven ways."</div>
+                <div class="verse-ref">— Deuteronomy 28:7 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"But seek ye first the kingdom of God, and his righteousness; and all these things shall be added unto you."</div>
+                <div class="verse-ref">— Matthew 6:33 (KJV)</div>
+            </div>
+        </div>
+        
+        <!-- SECTION 5: LOVE CHARACTERISTICS -->
+        <div class="section">
+            <h2>❤️ THE NATURE OF TRUE LOVE ❤️</h2>
+            
+            <div class="verse-card" style="background: linear-gradient(135deg, rgba(220, 20, 60, 0.2), rgba(255, 20, 147, 0.2));">
+                <div class="verse-text" style="font-size: 19px; font-weight: 500;">
+                    "Charity suffereth long, and is kind; charity envieth not; charity vaunteth not itself, is not puffed up, Doth not behave itself unseemly, seeketh not her own, is not easily provoked, thinketh no evil; Rejoiceth not in iniquity, but rejoiceth in the truth; Beareth all things, believeth all things, hopeth all things, endureth all things. Charity never faileth."
+                </div>
+                <div class="verse-ref" style="font-size: 18px;">— 1 Corinthians 13:4-8 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"And above all these things put on charity, which is the bond of perfectness."</div>
+                <div class="verse-ref">— Colossians 3:14 (KJV)</div>
+            </div>
+            
+            <div class="verse-card">
+                <div class="verse-text">"Beloved, let us love one another: for love is of God; and every one that loveth is born of God, and knoweth God."</div>
+                <div class="verse-ref">— 1 John 4:7 (KJV)</div>
+            </div>
+        </div>
+        
+        <!-- FINAL BLESSING -->
+        <div class="section" style="background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(218, 165, 32, 0.15)); border-color: rgba(255, 215, 0, 0.5);">
+            <h2 style="color: #FFD700;">✨ FINAL BLESSING ✨</h2>
+            
+            <div class="prayer-box" style="background: rgba(255, 215, 0, 0.1); border-color: #FFD700;">
+                <p style="font-size: 18px; text-align: center;">
+                    <strong>"The LORD bless thee, and keep thee: The LORD make his face shine upon thee, and be gracious unto thee: The LORD lift up his countenance upon thee, and give thee peace."</strong><br><br>
+                    <span style="color: #FFD700;">— Numbers 6:24-26 (KJV)</span>
+                </p>
+            </div>
+            
+            <p style="text-align: center; font-size: 19px; margin-top: 30px; color: rgba(255, 255, 255, 0.95);">
+                May this relationship be a testament to God's glory. May your love shine as a light in dark places. May you be fruitful, multiply, and establish a godly legacy. In Jesus' mighty name, <strong>AMEN!</strong>
+            </p>
+        </div>
+        
+        <div style="text-align: center; padding: 40px 20px; color: rgba(255, 255, 255, 0.6);">
+            <p>© 2026 • Covered by the Blood of Jesus • Walking in Victory</p>
+        </div>
+    </div>
+</body>
+</html>
