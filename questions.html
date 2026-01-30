@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💖 34 Connection Questions</title>
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        @page { size: A4; margin: 10mm; }
+        
+        body { 
+            font-family: Georgia, serif; 
+            background: linear-gradient(135deg, #1a0000 0%, #4a0000 100%); 
+            min-height: 100vh; 
+            padding: 18px;
+            line-height: 1.5;
+            color: #2C1810;
+        }
+        
+        .container { 
+            max-width: 900px; 
+            margin: 0 auto; 
+            background: rgba(255,255,255,0.98); 
+            border-radius: 25px; 
+            box-shadow: 0 25px 60px rgba(220,20,60,0.25); 
+            overflow: hidden;
+            border: 4px solid rgba(220,20,60,0.2);
+        }
+        
+        .header { 
+            text-align: center; 
+            font-family: Georgia, serif; 
+            padding: 42px 28px;
+            background: linear-gradient(135deg, #DC143C 0%, #FF6B9D 100%);
+            color: white;
+            position: relative;
+        }
+        
+        .header h1 {
+            font-size: 42px;
+            margin-bottom: 16px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.15);
+        }
+        
+        .header .subtitle {
+            font-size: 19px;
+            opacity: 0.96;
+            font-style: italic;
+        }
+        
+        .question-section { 
+            margin: 28px 38px; 
+            padding: 32px; 
+            border: 4px solid; 
+            border-radius: 22px; 
+            position: relative;
+            page-break-inside: avoid;
+        }
+        
+        .past { 
+            border-color: #DC143C; 
+            background: linear-gradient(135deg, #FFF0F0, white); 
+        }
+        
+        .present { 
+            border-color: #FF1493; 
+            background: linear-gradient(135deg, #FFF5F7, white); 
+        }
+        
+        .future { 
+            border-color: #C71585; 
+            background: linear-gradient(135deg, #FFE4EC, white); 
+        }
+        
+        .support { 
+            border-color: #DC143C; 
+            background: linear-gradient(135deg, #FFE0E0, white); 
+        }
+        
+        .favorites { 
+            border-color: #FF69B4; 
+            background: linear-gradient(135deg, #FFF0F5, white); 
+        }
+        
+        .section-title { 
+            font-family: Georgia, serif; 
+            font-size: 28px; 
+            text-align: center; 
+            margin-bottom: 28px; 
+            color: #8B0000;
+            position: relative;
+            padding-bottom: 16px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 4px;
+            background: currentColor;
+        }
+        
+        .question { 
+            margin: 24px 0; 
+            padding: 22px; 
+            background: rgba(255,255,255,0.92); 
+            border-radius: 16px; 
+            border-left: 6px solid;
+            page-break-inside: avoid;
+        }
+        
+        .past .question { border-left-color: #DC143C; }
+        .present .question { border-left-color: #FF1493; }
+        .future .question { border-left-color: #C71585; }
+        .support .question { border-left-color: #DC143C; }
+        .favorites .question { border-left-color: #FF69B4; }
+        
+        .qnum { 
+            font-weight: bold; 
+            color: #DC143C; 
+            font-size: 19px; 
+            margin-bottom: 11px;
+            display: block;
+        }
+        
+        .qtext {
+            font-size: 17px;
+            line-height: 1.65;
+            margin-bottom: 16px;
+            color: #2C1810;
+        }
+        
+        .answerline { 
+            border-bottom: 2px dashed #ccc; 
+            margin: 13px 0; 
+            padding-bottom: 11px; 
+            font-style: italic;
+            min-height: 32px;
+            font-size: 15px;
+            color: #666;
+        }
+        
+        .instruction-box {
+            background: linear-gradient(135deg, #FFE5EC, #FFF);
+            padding: 26px;
+            margin: 28px 38px;
+            border-radius: 22px;
+            border: 3px solid #DC143C;
+            text-align: center;
+            font-size: 17px;
+            line-height: 1.85;
+        }
+        
+        .instruction-box strong {
+            color: #DC143C;
+            font-size: 19px;
+        }
+        
+        @media print {
+            body { background: white; padding: 0; }
+            .container { box-shadow: none; border-radius: 0; }
+        }
+        
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .question-section { margin: 20px 20px; padding: 20px; }
+            .header h1 { font-size: 34px; }
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1400px; margin: 0 auto; padding: 20px;"><a href="index.html" style="display: inline-block; margin-bottom: 30px; padding: 15px 35px; background: linear-gradient(135deg, #DC143C, #FF1493); color: white; text-decoration: none; border-radius: 50px; font-weight: bold; box-shadow: 0 10px 30px rgba(220,20,60,0.4); transition: all 0.3s ease;">← Back to Home</a>
+    <div class="container">
+        <div class="header">
+            <h1>❤️ 34 CONNECTION QUESTIONS ❤️</h1>
+            <div class="subtitle">Both answer every question • Print 2 copies</div>
+        </div>
+        
+        <div class="instruction-box">
+            <strong>HOW TO USE THIS</strong><br>
+            Take turns reading questions aloud • Both answer before moving to next<br>
+            Write notes if helpful • Be honest • Listen deeply
+        </div>
+
+        <!-- PAST QUESTIONS -->
+        <div class="question-section past">
+            <div class="section-title">PAST (8)</div>
+            
+            <div class="question">
+                <span class="qnum">1.</span>
+                <div class="qtext">What's one childhood fear you had that shaped who you are today?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">2.</span>
+                <div class="qtext">What's a moment from your teenage years you wish I could have witnessed?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">3.</span>
+                <div class="qtext">Who was the person who made you believe in love before we met?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">4.</span>
+                <div class="qtext">What's a painful memory from your past that you've never fully talked about with me?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">5.</span>
+                <div class="qtext">If you could tell your 15-year-old self one thing about your life now, what would it be?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">6.</span>
+                <div class="qtext">What's a family tradition from your childhood you want to bring into our relationship?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">7.</span>
+                <div class="qtext">What's one thing your younger self would be surprised to learn about who you're dating now?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">8.</span>
+                <div class="qtext">What's the hardest lesson you learned before we met that still affects how you love today?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+        </div>
+
+        <!-- PRESENT QUESTIONS -->
+        <div class="question-section present">
+            <div class="section-title">PRESENT (8)</div>
+            
+            <div class="question">
+                <span class="qnum">1.</span>
+                <div class="qtext">What's something you're currently struggling with that you haven't told me the full truth about?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">2.</span>
+                <div class="qtext">What do I do right now that makes you feel most seen and understood?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">3.</span>
+                <div class="qtext">What's one thing about our relationship today that you wish was different?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">4.</span>
+                <div class="qtext">What are you most proud of yourself for right now in your life?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">5.</span>
+                <div class="qtext">If you had to describe how you feel about "us" in this exact moment using one word, what would it be and why?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">6.</span>
+                <div class="qtext">What's one need you have right now that you're afraid to ask me for?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">7.</span>
+                <div class="qtext">What's something I do that you interpret as caring, even though I might not realize it?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">8.</span>
+                <div class="qtext">If you could change one habit or pattern in how we spend time together, what would it be?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+        </div>
+
+        <!-- FUTURE QUESTIONS -->
+        <div class="question-section future">
+            <div class="section-title">FUTURE (8)</div>
+            
+            <div class="question">
+                <span class="qnum">1.</span>
+                <div class="qtext">What does "success" in our relationship look like to you 5 years from now?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">2.</span>
+                <div class="qtext">What's one fear you have about our future together that you've been avoiding saying out loud?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">3.</span>
+                <div class="qtext">If we could guarantee one thing would happen in our future, what would you want it to be?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">4.</span>
+                <div class="qtext">What's a dream you have that you're afraid I won't support or understand?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">5.</span>
+                <div class="qtext">When you imagine us old together, what do you hope we're doing on a random Tuesday afternoon?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">6.</span>
+                <div class="qtext">What adventure or experience do you hope we share together in the next 2 years?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">7.</span>
+                <div class="qtext">If money wasn't an issue, what would our ideal life together look like in 10 years?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">8.</span>
+                <div class="qtext">What do you hope we've learned about each other 5 years from now that we don't know today?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+        </div>
+
+        <!-- SUPPORT AUDIT QUESTIONS -->
+        <div class="question-section support">
+            <div class="section-title">SUPPORT AUDIT (5)</div>
+            
+            <div class="question">
+                <span class="qnum">1.</span>
+                <div class="qtext">What am I currently doing (or not doing) that makes you feel unsupported?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">2.</span>
+                <div class="qtext">What's one way I could show up better for you during your hardest moments?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">3.</span>
+                <div class="qtext">What's something I think I'm doing well that actually doesn't help you the way I think it does?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">4.</span>
+                <div class="qtext">If you could change one thing about how we communicate during conflict, what would it be?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">5.</span>
+                <div class="qtext">What's one thing I do that makes you feel deeply loved that I might not even realize I'm doing?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+        </div>
+
+        <!-- FAVORITE STUFF QUESTIONS -->
+        <div class="question-section favorites">
+            <div class="section-title">FAVORITE STUFF (5)</div>
+            
+            <div class="question">
+                <span class="qnum">1.</span>
+                <div class="qtext">What's your favorite way to waste time when you're completely alone?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">2.</span>
+                <div class="qtext">What's your favorite memory of us that didn't involve any planning—it just happened?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">3.</span>
+                <div class="qtext">What's your favorite thing about yourself that you think I don't appreciate enough?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">4.</span>
+                <div class="qtext">What's your favorite ritual or habit we have together, no matter how small?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+            
+            <div class="question">
+                <span class="qnum">5.</span>
+                <div class="qtext">If you could freeze one moment from the last year and live in it forever, which would it be?</div>
+                <div class="answerline">Partner: ________________________________________________________________</div>
+                <div class="answerline">Me: ____________________________________________________________________</div>
+            </div>
+        </div>
+
+        <div class="instruction-box" style="margin-top: 38px;">
+            <strong>AFTER COMPLETING</strong><br>
+            Discuss: What surprised you? What did you learn? What needs follow-up?
+        </div>
+    </div>
+    </div>
+</body>
+</html>
