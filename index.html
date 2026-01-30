@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
@@ -18,7 +19,7 @@
             position: relative;
             overflow-x: hidden;
         }
-        
+
         /* Animated background hearts */
         .hearts-bg {
             position: fixed;
@@ -29,21 +30,34 @@
             pointer-events: none;
             z-index: 0;
         }
-        
+
         .heart {
             position: absolute;
             color: rgba(220, 20, 60, 0.2);
             font-size: 20px;
             animation: float 15s infinite;
         }
-        
+
         @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 0.8;
+            }
+
+            90% {
+                opacity: 0.8;
+            }
+
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
         }
-        
+
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -51,7 +65,7 @@
             position: relative;
             z-index: 1;
         }
-        
+
         .header {
             text-align: center;
             margin-bottom: 60px;
@@ -62,7 +76,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .header::before {
             content: '';
             position: absolute;
@@ -70,52 +84,57 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
             background-size: 30px 30px;
             animation: gridMove 20s linear infinite;
         }
-        
+
         @keyframes gridMove {
-            0% { transform: translate(0, 0); }
-            100% { transform: translate(30px, 30px); }
+            0% {
+                transform: translate(0, 0);
+            }
+
+            100% {
+                transform: translate(30px, 30px);
+            }
         }
-        
+
         .header h1 {
             font-size: 56px;
             color: white;
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
             margin-bottom: 15px;
             position: relative;
             z-index: 1;
         }
-        
+
         .header .subtitle {
             font-size: 24px;
-            color: rgba(255,255,255,0.95);
+            color: rgba(255, 255, 255, 0.95);
             font-weight: 300;
             position: relative;
             z-index: 1;
         }
-        
+
         .header .date-badge {
             display: inline-block;
             margin-top: 20px;
             padding: 12px 30px;
-            background: rgba(255,255,255,0.2);
-            border: 2px solid rgba(255,255,255,0.5);
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.5);
             border-radius: 50px;
             color: white;
             font-size: 18px;
             backdrop-filter: blur(10px);
         }
-        
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
             margin-bottom: 40px;
         }
-        
+
         .card {
             background: linear-gradient(135deg, rgba(30, 30, 60, 0.95), rgba(50, 40, 80, 0.95));
             border-radius: 25px;
@@ -126,7 +145,7 @@
             position: relative;
             overflow: hidden;
         }
-        
+
         .card::before {
             content: '';
             position: absolute;
@@ -142,28 +161,35 @@
             transition: opacity 0.4s ease;
             animation: gradientShift 4s ease infinite;
         }
-        
+
         @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+
+            0%,
+            100% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
         }
-        
+
         .card:hover::before {
             opacity: 1;
         }
-        
+
         .card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: 0 25px 60px rgba(220, 20, 60, 0.4);
         }
-        
+
         .card-icon {
             font-size: 48px;
             margin-bottom: 20px;
             display: block;
             text-align: center;
         }
-        
+
         .card h2 {
             font-size: 28px;
             color: #FF6B9D;
@@ -171,7 +197,7 @@
             text-align: center;
             text-shadow: 0 0 10px rgba(255, 107, 157, 0.5);
         }
-        
+
         .card p {
             font-size: 16px;
             color: rgba(255, 255, 255, 0.8);
@@ -179,7 +205,7 @@
             text-align: center;
             margin-bottom: 25px;
         }
-        
+
         .btn {
             display: block;
             width: 100%;
@@ -196,52 +222,66 @@
             cursor: pointer;
             box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4);
         }
-        
+
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(220, 20, 60, 0.6);
             background: linear-gradient(135deg, #FF1493, #DC143C);
         }
-        
+
         .spiritual-card {
             grid-column: 1 / -1;
             background: linear-gradient(135deg, rgba(139, 0, 139, 0.95), rgba(75, 0, 130, 0.95));
             border-color: rgba(148, 0, 211, 0.5);
         }
-        
+
         .spiritual-card::before {
             background: linear-gradient(45deg, #8B008B, #9400D3, #8B008B, #9400D3);
         }
-        
+
         .spiritual-card h2 {
             color: #DA70D6;
         }
-        
+
         .footer {
             text-align: center;
             padding: 40px 20px;
             color: rgba(255, 255, 255, 0.6);
             font-size: 14px;
         }
-        
+
         @media (max-width: 768px) {
-            .header h1 { font-size: 36px; }
-            .header .subtitle { font-size: 18px; }
-            .grid { grid-template-columns: 1fr; }
-            .card { padding: 30px; }
+            .header h1 {
+                font-size: 36px;
+            }
+
+            .header .subtitle {
+                font-size: 18px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                padding: 30px;
+            }
         }
     </style>
 </head>
+
 <body>
     <div class="hearts-bg" id="hearts-bg"></div>
-    
+
     <div class="container">
         <div class="header">
             <h1>💕 Our Arboretum Love Date 💕</h1>
             <p class="subtitle">A Journey Through Love, Nature & Faith</p>
+            <p class="subtitle"><b>Tonnzz & Fayyss</b></p>
+
             <div class="date-badge">📅 Friday, January 30, 2026</div>
         </div>
-        
+
         <div class="grid">
             <div class="card">
                 <span class="card-icon">📅</span>
@@ -249,61 +289,63 @@
                 <p>Your complete 6-hour timeline with 7 activity blocks, pack list, and time allocations</p>
                 <a href="schedule.html" class="btn">View Schedule</a>
             </div>
-            
+
             <div class="card">
                 <span class="card-icon">💖</span>
                 <h2>Connection Questions</h2>
                 <p>34 deep questions to know each other intimately - Past, Present, Future, Support & Favorites</p>
                 <a href="questions.html" class="btn">Explore Questions</a>
             </div>
-            
+
             <div class="card">
                 <span class="card-icon">🎯</span>
                 <h2>Jeopardy Game</h2>
                 <p>Fun couple's trivia game with detailed instructions and categories about each other</p>
                 <a href="jeopardy.html" class="btn">Game Instructions</a>
             </div>
-            
+
             <div class="card">
                 <span class="card-icon">🌿</span>
                 <h2>Scavenger Hunt</h2>
                 <p>30+ nature items to discover together, couple challenges, and photo missions</p>
                 <a href="scavenger.html" class="btn">Start Hunt</a>
             </div>
-            
+
             <div class="card">
                 <span class="card-icon">✍️</span>
                 <h2>Letter to Future Us</h2>
                 <p>Writing prompts to create a time capsule for your relationship in 5 years</p>
                 <a href="letter.html" class="btn">Writing Guide</a>
             </div>
-            
+
             <div class="card">
                 <span class="card-icon">🌳</span>
                 <h2>Arboretum History</h2>
                 <p>119 years of history (1907-2026) and the perfect script for "our tree" moment</p>
                 <a href="history.html" class="btn">Discover History</a>
             </div>
-            
+
             <div class="card spiritual-card">
                 <span class="card-icon">✝️</span>
                 <h2>Spiritual Warfare & Biblical Foundation</h2>
-                <p>Powerful prayers against evil, witchcraft, destiny snatchers • KJV verses for relationship protection & marriage foundation • God's covenant promises for your union</p>
-                <a href="spiritual.html" class="btn" style="background: linear-gradient(135deg, #8B008B, #9400D3);">Enter Spiritual Armory</a>
+                <p>Powerful prayers against evil, witchcraft, destiny snatchers • KJV verses for relationship protection
+                    & marriage foundation • God's covenant promises for your union</p>
+                <a href="spiritual.html" class="btn"
+                    style="background: linear-gradient(135deg, #8B008B, #9400D3);">Enter Spiritual Armory</a>
             </div>
         </div>
-        
+
         <div class="footer">
             <p>Made with ❤️ for an unforgettable love journey</p>
             <p>© 2026 • Our Love Story</p>
         </div>
     </div>
-    
+
     <script>
         // Animated floating hearts
         const heartsContainer = document.getElementById('hearts-bg');
         const heartSymbols = ['❤️', '💕', '💖', '💗', '💓'];
-        
+
         function createHeart() {
             const heart = document.createElement('div');
             heart.className = 'heart';
@@ -312,14 +354,15 @@
             heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
             heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
             heartsContainer.appendChild(heart);
-            
+
             setTimeout(() => heart.remove(), 15000);
         }
-        
+
         setInterval(createHeart, 2000);
         for (let i = 0; i < 10; i++) {
             setTimeout(createHeart, i * 300);
         }
     </script>
 </body>
+
 </html>
